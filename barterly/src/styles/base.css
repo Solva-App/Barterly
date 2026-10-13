@@ -1,0 +1,88 @@
+/* ==========================================================
+   Reset, typography, app frame
+   ========================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { height: 100%; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100%;
+  font-family: var(--font); font-size: var(--fs-body); line-height: 1.5;
+  color: var(--text); background: var(--page);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  overscroll-behavior: none;                 /* no accidental pull-to-refresh / bounce */
+  -webkit-tap-highlight-color: transparent;
+}
+h1, h2, h3, h4, p, figure { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { background: none; border: 0; padding: 0; cursor: pointer; touch-action: manipulation; }
+a { color: inherit; text-decoration: none; touch-action: manipulation; }
+img, svg { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
+
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+:focus:not(:focus-visible) { outline: none; }
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline-offset: 0; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Type roles */
+.t-display { font-size: var(--fs-display); line-height: 1.12; font-weight: 800; letter-spacing: -.02em; }
+.t-title   { font-size: var(--fs-title); line-height: 1.2; font-weight: 800; letter-spacing: -.015em; }
+.t-heading { font-size: var(--fs-heading); line-height: 1.3; font-weight: 700; letter-spacing: -.01em; }
+.t-body    { font-size: var(--fs-body); }
+.t-small   { font-size: var(--fs-small); }
+.t-caption { font-size: var(--fs-caption); }
+.t-muted   { color: var(--text-3); }
+.t-soft    { color: var(--text-2); }
+.t-brand   { color: var(--brand-ink); }
+.t-eyebrow { font-size: var(--fs-caption); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Layout helpers */
+.stack { display: flex; flex-direction: column; gap: var(--gap, var(--sp-4)); }
+.row { display: flex; align-items: center; gap: var(--gap, var(--sp-3)); }
+.between { justify-content: space-between; }
+.grow { flex: 1; min-width: 0; }
+.center { text-align: center; }
+
+/* ---------- App frame ---------- */
+.stage { min-height: 100dvh; display: grid; place-items: center; }
+.app {
+  position: relative; width: 100%; max-width: 430px;
+  height: 100dvh; background: var(--bg);
+  display: flex; flex-direction: column; overflow: hidden;
+  isolation: isolate;
+}
+@media (min-width: 520px) {
+  .stage { padding: var(--sp-5); }
+  .app {
+    height: min(880px, calc(100dvh - 48px));
+    border-radius: 42px; border: 1px solid var(--border);
+    box-shadow: var(--shadow-3);
+  }
+}
+
+.view { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.screen {
+  position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden;
+  background: var(--bg); overscroll-behavior-y: contain;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.screen::-webkit-scrollbar, .no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+.screen:focus { outline: none; }
+.screen.has-tabbar { padding-bottom: calc(var(--tabbar-h) + var(--safe-bottom) + var(--sp-5)); }
+.screen.is-flex { display: flex; flex-direction: column; overflow: hidden; }
+.screen.on-brand { background: var(--bg); }
+.pad { padding: var(--sp-4); }
+.section { padding: 0 var(--sp-4); }
+
+.offline-banner {
+  position: relative; z-index: var(--z-toast); background: var(--text); color: var(--bg);
+  font-size: var(--fs-small); font-weight: 600; text-align: center;
+  padding: calc(var(--safe-top) + 6px) var(--sp-4) 6px;
+}

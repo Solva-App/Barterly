@@ -1,0 +1,107 @@
+/* ==========================================================
+   Design tokens — every colour, space, radius and shadow in
+   the app comes from here. Dark mode only re-maps tokens.
+   ========================================================== */
+:root {
+  color-scheme: light;
+
+  /* Brand */
+  --brand: #e11d48;
+  --brand-ink: #be123c;            /* brand-coloured text on surfaces (6:1 on white) */
+  --brand-soft: #fff1f2;
+  --brand-soft-2: #ffe4e6;
+  --on-brand: #ffffff;
+  --grad-hero: linear-gradient(135deg, #9f1239 0%, #e11d48 58%, #f97316 125%);
+  --grad-btn: linear-gradient(135deg, #be123c 0%, #dc2626 100%);
+
+  /* Neutrals */
+  --page: #e8ebf3;
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #f1f3f8;
+  --surface-3: #e6e9f2;
+  --border: #e4e7ef;
+  --border-strong: #cdd3e1;
+  --text: #0f172a;
+  --text-2: #475569;
+  --text-3: #64748b;
+  --glass: rgba(255, 255, 255, .82);
+  --scrim: rgba(15, 23, 42, .52);
+
+  /* Status */
+  --success: #15803d;
+  --success-bg: #dcfce7;
+  --warn: #92400e;
+  --warn-bg: #fef3c7;
+  --danger: #dc2626;
+  --danger-bg: #fee2e2;
+  --star: #f59e0b;
+
+  /* Elevation */
+  --shadow-1: 0 1px 2px rgba(15, 23, 42, .06), 0 1px 3px rgba(15, 23, 42, .05);
+  --shadow-2: 0 8px 20px -6px rgba(15, 23, 42, .14), 0 2px 6px rgba(15, 23, 42, .06);
+  --shadow-3: 0 30px 60px -20px rgba(15, 23, 42, .35);
+  --shadow-brand: 0 10px 22px -8px rgba(225, 29, 72, .55);
+
+  /* Spacing scale */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px;
+
+  /* Radii */
+  --r-sm: 10px; --r-md: 14px; --r-lg: 20px; --r-xl: 28px; --r-full: 999px;
+
+  /* Type scale (one family: Inter) */
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fs-caption: .75rem;     /* 12 */
+  --fs-small: .8125rem;     /* 13 */
+  --fs-body: .9375rem;      /* 15 */
+  --fs-input: 1rem;         /* 16 — prevents iOS zoom-on-focus */
+  --fs-heading: 1.125rem;   /* 18 */
+  --fs-title: 1.5rem;       /* 24 */
+  --fs-display: 2rem;       /* 32 */
+
+  /* Motion */
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  --dur-1: 150ms; --dur-2: 250ms; --dur-3: 380ms;
+
+  /* Layout */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --tabbar-h: 64px;
+  --tap: 44px;
+
+  /* Layers */
+  --z-sticky: 5; --z-tabbar: 20; --z-sheet: 40; --z-fx: 50; --z-toast: 60;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --brand: #fb5577;
+  --brand-ink: #ff8aa3;
+  --brand-soft: rgba(251, 85, 119, .12);
+  --brand-soft-2: rgba(251, 85, 119, .2);
+  --page: #05060a;
+  --bg: #0b0d14;
+  --surface: #141824;
+  --surface-2: #1b2030;
+  --surface-3: #252b3d;
+  --border: #252b3d;
+  --border-strong: #38405a;
+  --text: #f1f5f9;
+  --text-2: #b8c2d4;
+  --text-3: #8d99b0;
+  --glass: rgba(20, 24, 36, .82);
+  --scrim: rgba(0, 0, 0, .62);
+  --success: #4ade80;
+  --success-bg: rgba(74, 222, 128, .14);
+  --warn: #fcd34d;
+  --warn-bg: rgba(252, 211, 77, .13);
+  --danger: #f87171;
+  --danger-bg: rgba(248, 113, 113, .14);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow-2: 0 8px 20px -6px rgba(0, 0, 0, .55);
+  --shadow-3: 0 30px 60px -20px rgba(0, 0, 0, .8);
+  --shadow-brand: 0 10px 22px -8px rgba(251, 85, 119, .45);
+}

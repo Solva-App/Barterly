@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <title>Barterly — Swap what you have for what you need</title>
+  <meta name="description" content="Barterly is a peer-to-peer barter marketplace. Post what you have, say what you want, chat in the app and swap with verified people in your state.">
+  <meta name="theme-color" content="#f6f7fb" id="themeColor">
+  <!-- Backend: set the API base URL here (or window.__ENV__.API_URL). Empty = built-in mock data. -->
+  <meta name="barterly-api-url" content="">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Barterly">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Resolve the theme before first paint so there is no flash -->
+  <script>
+    (function () {
+      var mode = 'system';
+      try { mode = localStorage.getItem('barterly:theme') || 'system'; } catch (e) {}
+      var dark = mode === 'dark' || (mode === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    })();
+  </script>
+
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/components.css">
+  <link rel="stylesheet" href="src/styles/screens.css">
+  <link rel="stylesheet" href="src/styles/motion.css">
+</head>
+<body>
+  <div class="stage">
+    <div class="app" id="app" data-chrome="none">
+      <div class="offline-banner" id="offline" role="status" hidden></div>
+      <main class="view" id="view" aria-live="polite"></main>
+      <nav class="tabbar" id="tabbar" aria-label="Main navigation"></nav>
+      <div class="layer" id="layer"></div>
+      <div class="fx" id="fx" aria-hidden="true"></div>
+      <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+  <noscript><p style="padding:24px;font-family:sans-serif">Barterly needs JavaScript to run.</p></noscript>
+  <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
